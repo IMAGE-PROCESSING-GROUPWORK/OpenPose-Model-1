@@ -60,6 +60,14 @@ if __name__ == '__main__':
         image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
 
         logger.debug('show+')
+
+        no_people = len(humans);
+        # print("no. of people:",no_people) 
+        cv2.putText(image,
+                    "People: %d" % (no_people),
+                    (10, 58),  cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                    (255, 255, 255), 2)
+
         cv2.putText(image,
                     "FPS: %f" % (1.0 / (time.time() - fps_time)),
                     (10, 10),  cv2.FONT_HERSHEY_SIMPLEX, 0.5,
